@@ -1,6 +1,6 @@
 # Projector
-Source-Code for Rails 6 tutorial in Serbian language, created on [Krstarica forum](https://forum.krstarica.com)
-Purpose of this project is to introduce Rails to beginners in my country, and to create Freelance & Crowdfunding Open-Source platform
+Source-Code for Rails 6 tutorial in Serbian language, created on [Krstarica forum](https://forum.krstarica.com)  
+Purpose of this project is to introduce Rails to begginers in my country, and to create Freelance & Crowdfunding Open-Source platform
 
 ## Application:
 
