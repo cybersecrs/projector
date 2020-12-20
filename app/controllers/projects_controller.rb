@@ -1,55 +1,44 @@
 class ProjectsController < ApplicationController
 
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_user_projects,  only:   [:edit, :update, :destroy]
-  before_action :set_project,        only:   [:show]
+  before_action :authenticate_user!,  except: [:index, :show]
+  before_action :set_user_project,    only:   [:edit,  :update, :destroy]
+  before_action :set_project,         only:   [:show]
 
 
-  # GET /projects
-
+  # Prikazi aktivne projekte
   def index
     @projects = Project.where(aktivan: true).all
   end
 
 
-  # GET /projects/1
-
+  # Prikazi izabrani projekat
   def show
   end
 
-
-  # GET /projects/new
 
   def new
     @project = Project.new
   end
 
 
-  # GET /projects/1/edit
-
   def edit
-    @project = @projects.find(params[:id])
   end
 
-
-  # POST /projects
 
   def create
     @project = current_user.projects.build(project_params)
 
     if @project.save
-      redirect_to @project, notice: 'Project was successfully created.'
+      redirect_to @project, notice: 'Projekat je uspesno kreiran.'
     else
       render :new
     end
   end
 
 
-  # PATCH/PUT /projects/1
-
   def update
     if @project.update(project_params)
-      redirect_to @project, notice: 'Project was successfully updated.'
+      redirect_to @project, notice: 'Projekat je uspesno izmenjen.'
     else
       render :edit
     end
@@ -60,26 +49,26 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project.destroy
-    redirect_to projects_url, notice: 'Project was successfully destroyed.'
+    redirect_to projects_url, notice: 'Projekat je uspesno obrisan.'
   end
 
 
   private
 
 
-    # Use callbacks to share common setup or constraints between actions.
-
   def set_project
     @project = Project.find(params[:id])
   end
 
-  def set_user_projects
-    @projects = Project.where(user_id: current_user.id).all
+
+  def set_user_project
+    projects = Project.find_by(user_id: current_user.id)
+    @project = projects.find(params[:id])
   end
 
-    # Rais proverava polja koja mu mi dozvolimo
 
-    def project_params
-      params.require(:project).permit(:naziv, :opis, :ukupno, :do_sada, :aktivan)
-    end
+  def project_params
+    params.require(:project).permit(:naziv, :opis, :ukupno, :do_sada, :aktivan)
+  end
+
 end
