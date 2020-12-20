@@ -62,7 +62,7 @@ class ProjectsController < ApplicationController
 
 
   def set_user_project
-    projects = Project.find_by(user_id: current_user.id)
+    projects = Project.where(user_id: current_user.id).all
     @project = projects.find(params[:id])
   end
 
