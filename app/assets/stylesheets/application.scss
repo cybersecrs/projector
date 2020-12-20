@@ -17,22 +17,8 @@
 $pagination-item-margin: 1rem;
 $navbar-background-color: transparent;
 
-$link: #8b0000;
-$link-hover: #222;
-
 @import "bulma";
 @import "functions";
-
-
-
-/* Header */
-
-
-.hero.is-warning   { background-color: #8b0000 }
-.hero.is-light     { background-color: #f1f1f1; }
-.navbar.is-light   { background-color: #f1f1f1; }
-.navbar.is-warning { background-color: #8b0000 }
-
 
 
 /* Buttons */
@@ -68,8 +54,8 @@ $link-hover: #222;
 
 .pa3 {
     padding: var(--spacing-medium);
-    background: #222;
-    border-radius: 0 0 1rem 1rem;
+    background: #2222;
+    border-radius: 0.5rem;
 }
 
 .project-index-grid {
@@ -91,7 +77,7 @@ $link-hover: #222;
       line-height: 1.3rem;
       font-size: 0.8rem;
       min-height: 2rem;
-      background: #f8f8f8;
+      background: #eee;
       text-align: center;
       padding: 5px 0;
       margin-bottom: 0;
@@ -110,21 +96,6 @@ $link-hover: #222;
     position: relative;
     max-height: 175px;
     overflow: hidden;
-
-    img {
-      max-width: 100%;
-      width: 100%;
-      border-radius: 1rem 1rem 0 0;
-      &:hover {
-        opacity: .9;
-      }
-    }
-
-    .condition {
-      position: absolute;
-      bottom: 10px;
-      right: 9px;
-    }
   }
 }
 
