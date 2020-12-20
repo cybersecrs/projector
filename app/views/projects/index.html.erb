@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <div class="project-index-grid pt8">
 
   <% @projects.each do |project| %>
@@ -16,16 +14,16 @@
 
       <div class="control has-text-centered">
         <span class="tag is-small">
-          <%= project.ukupno %>
-        </span>
-
-        <span class="tag is-small">
-          <%= project.do_sada  %>
+          Potrebno: <%= project.ukupno %>
         </span>
       </div>
 
+      <div class="control has-text-centered">
+          Sakupljeno: <%= project.do_sada  %>
+      </div>
+
     </div>
-  </div<
+  </div>
 
     <% end %>
 
